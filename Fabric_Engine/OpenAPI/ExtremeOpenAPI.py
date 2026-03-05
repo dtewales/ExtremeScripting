@@ -87,7 +87,7 @@ class OpenAPI():
         headers   = {"Content-Type": "application/json", "Accept'":  "application/json"}
         body      = {'username': self.username,'password': self.password}
         try:
-            response = requests.post(token_url, auth=(self.username, self.password), headers=headers, json=body, verify=False, timeout=5)
+            response = requests.post(token_url, headers=headers, json=body, verify=False, timeout=5)
             log.debug("login passed in %0.3f seconds" % response.elapsed.total_seconds())
         except requests.Timeout as error:
             self.message = "timeout reached, host '%s' not responding" % self.host
